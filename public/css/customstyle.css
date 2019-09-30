@@ -1,0 +1,16 @@
+#login-btn{
+	color: #fff;
+	font-size: 16px;
+	width:100%;
+}
+.forgot-password{
+	margin-top: 7px;
+}
+.non-button{
+	border: 0;
+    background-color: white;
+    padding: 0;
+}
+/*.non-button:hover{
+	background-color: #eaeaf1;
+}*/
