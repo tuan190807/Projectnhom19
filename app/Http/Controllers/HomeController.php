@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $teaching_new = Teaching::where('create')
         return view('home');
     }
 }

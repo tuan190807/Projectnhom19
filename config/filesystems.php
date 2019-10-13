@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 return [
 
@@ -62,6 +62,13 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+        ],
+
+        'teaching' => [
+            'driver' => 'local',
+            'root' => storage_path('app/teaching'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
         ],
 
     ],

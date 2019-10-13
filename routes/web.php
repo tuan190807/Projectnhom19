@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/teaching-manage', 'TeachingController@getByTeacherId')->name('teaching-manage');
+Route::get('/teaching-create', 'TeachingController@create')->name('teaching-create');
+Route::post('/teaching-store', 'TeachingController@store')->name('teaching-store');
+Route::get('/teaching-edit', 'TeachingController@edit')->name('teaching-edit');
+Route::post('/teaching-update', 'TeachingController@update')->name('teaching-update');
+Route::post('/teaching-delete', 'TeachingController@delete')->name('teaching-delete');
+Route::get('/teaching-view', 'TeachingController@view')->name('teaching-view');

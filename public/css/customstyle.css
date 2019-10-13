@@ -8,9 +8,124 @@
 }
 .non-button{
 	border: 0;
-    background-color: white;
-    padding: 0;
+	background-color: white;
+	padding: 0;
 }
-/*.non-button:hover{
-	background-color: #eaeaf1;
-}*/
+.fix-dropdown-item{
+	padding-top: 7px;
+	cursor: pointer;
+}
+.sortable-table{
+	table-layout: fixed;
+}
+.sortable-table th, .sortable-table td {
+	line-height: 1.3 !important;
+}
+.sortable-table thead th:after{
+	padding-left: 3px !important;
+}
+.sortable-table thead th:first-child, .sortable-table thead th:nth-child(4){
+	width: 7%;
+}
+.sortable-table thead th:last-child{
+	width: 12%;
+}
+.sortable-table thead th {
+	white-space: pre-line;
+	text-align: center;
+	padding-top: 0 !important;
+	vertical-align: middle;
+}
+.sortable-table td{
+	white-space: pre-line;
+}
+.sortable-table tbody td:first-child, .sortable-table tbody td:nth-child(4), .sortable-table tbody td:last-child{
+	text-align: center;
+}
+.sortable-table .dropdown-menu{
+	white-space: nowrap;
+}
+.content-wrapper{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.paginate_table{
+	float: right;
+	margin-top: 25px;
+}
+.doc-download .left, .doc-download .right{
+	display: inline-block;
+	text-align: center;
+	font-size: 13px;
+}
+.doc-download .left{
+	left: -15px;
+	margin-right: 15px;
+}
+.view-doc{
+	margin: 10px 0 20px 0;
+}
+.lecture_name{
+	text-align: center;
+	color: #248afd;
+}
+.comment{
+	margin-top: 15px;
+}
+.box-teaching-together{
+	display: block;
+	border: solid 1px #ccc;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+.box-teaching-together .box-img{
+	text-align: center;
+}
+.box-teaching-together .box-title{
+	background-color: #484065;
+	padding: 5px;
+}
+.box-teaching-together .box-desc{
+	font-size: 12px;
+	padding: 10px;
+}
+.box-teaching-together .box-title:hover{
+	background-color: #765ec9;
+}
+.box-teaching-together .box-title:hover a{
+	text-decoration: none;
+}
+.list-item{
+	border: solid 1px #ccc;
+	border-radius: 5%;
+	margin-bottom: 20px;
+}
+.list-item:hover a{
+	text-decoration: none;
+}
+.list-item:hover .box-title{
+	background-color: #765ec9;
+}
+.list-item .box-img{
+	text-align: center;
+}
+.list-item .box-title{
+	background-color: #484065;
+	padding: 5px;
+}
+.list-item .box-desc{
+	font-size: 12px;
+	padding: 10px;
+	color: #000;
+}
+.main-title{
+	color: #248afd;
+	margin-bottom: 15px;
+	margin-top: 15px
+}
+.first{
+	margin-top: 0;
+}
+.list-category{
+	margin-bottom: 25px;
+}
