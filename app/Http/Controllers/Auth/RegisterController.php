@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\CustomUser;
-use App\Student;
-use App\Teacher;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;

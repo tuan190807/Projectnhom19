@@ -25,9 +25,6 @@
 								<h4>Môn học : {{ $subject->subjectname }}</h4>
 								<p>Buổi: {{ $teaching->lesson_number }}</p>
 								<p>Giáo viên: <span style="font-weight: bold; color: #248afd">{{ $teaching->teacher_id }}</span> | Ngày: <span style="color: #248afd">{{ $teaching->date }}</span></p>
-								<h4 class ="lecture_name">
-									{{ $teaching->lecture_name }}
-								</h4>
 							</div>
 							<div class="col-md-2 doc-download">
 								<div class="left">
@@ -41,10 +38,16 @@
 									<span>Download</span>
 								</div>
 							</div>
+							<div class="col-md-12">
+								<h4 class ="lecture_name">
+									{{ $teaching->lecture_name }}
+								</h4>
+							</div>
 						</div>		
 					</div>
 					<div class=	"view-doc" style="text-align: center;">	
-						<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://vinasupport.com/my_pdf_file.pdf" width="800" height="500">
+						<embed class="document" src="{{asset('storage/teaching/' . $teaching->file_content)}}">
+							<!-- <iframe src="{{asset('storage/teaching/phieuhoc')}}" frameborder="1"></iframe> -->
 						</div>
 					</div>
 				</div>
@@ -85,19 +88,19 @@
 								<h4 style="margin-bottom: 20px; ">Bài viết cùng môn học</h4>
 								<div class="row">
 									@foreach($teaching_relate as $teaching)
-										<div class="col-md-12 box-teaching-together">
-											<div class="box-img">
-												<img class="img" src="https://tailieu.vn/image/document/thumbnail/2019/20191008/valhein/80x100/6861570505170.jpg" alt="">
-											</div>
-											<div class="box-title">
-												<a style="color: #fff" href="/teaching-view?id={{$teaching->id}}">{{ $teaching->lecture_name }}</a>
-											</div>
-											<div class="box-desc">
-												<p>Ngày đăng: {{ $teaching->date }}</p>
-												<p>Người dạy: {{ $teaching->teacher_id }}
-												</p>
-											</div>
+									<div class="col-md-12 box-teaching-together">
+										<div class="box-img">
+											<img class="img" src="https://tailieu.vn/image/document/thumbnail/2019/20191008/valhein/80x100/6861570505170.jpg" alt="">
 										</div>
+										<div class="box-title">
+											<a style="color: #fff" href="/teaching-view?id={{$teaching->id}}">{{ $teaching->lecture_name }}</a>
+										</div>
+										<div class="box-desc">
+											<p>Ngày đăng: {{ $teaching->date }}</p>
+											<p>Người dạy: {{ $teaching->teacher_id }}
+											</p>
+										</div>
+									</div>
 									@endforeach
 								</div>
 							</div>

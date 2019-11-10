@@ -212,7 +212,8 @@
                 </ul>
               </div>
             </li>
-
+            
+            @if(Auth::user()->role == 2)
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#manager-content" aria-expanded="false" aria-controls="ui-basic">
                 <i class="ti-palette menu-icon"></i>
@@ -226,7 +227,21 @@
                 </ul>
               </div>
             </li>
-
+            @endif
+            
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#question" aria-expanded="false" aria-controls="ui-basic">
+                <i class="ti-palette menu-icon"></i>
+                <span class="menu-title">Hỏi Đáp</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="question">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="">Quản Lý C</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="">Typography</a></li>
+                </ul>
+              </div>
+            </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="ti-palette menu-icon"></i>

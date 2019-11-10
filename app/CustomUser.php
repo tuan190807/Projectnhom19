@@ -34,4 +34,9 @@ class CustomUser extends Authenticatable
       return $this->password;
     }
 
+    protected function getRole()
+    {
+        return $this->role;
+    }
+
 }

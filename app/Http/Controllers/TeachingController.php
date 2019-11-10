@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -39,6 +38,7 @@ class TeachingController extends Controller
 
 	public function store(Request $request)
 	{
+		$teacher = Teacher::find(Auth::id());
 		// Validate form
 		$validator = Validator::make($request->all(), [
 			'lecture_name' => 'required|max:191',
@@ -59,11 +59,13 @@ class TeachingController extends Controller
 			$teaching->lesson_number = $request->lesson_number;
 			// handle file
 			$files_content = $request->files_content;
-			if($filename = $files_content->storeAs('teaching', $files_content->getClientOriginalName())) {
+
+			if($filename = Storage::putFileAs('public/teaching/' . $teacher->id, $files_content, $files_content->getClientOriginalName())) {
 				$teaching->file_content = $filename;
 				$teaching->date = $request->date;
 				$teaching->note = $request->note;
 				$teaching->substitute_teacher = $request->substitute_teacher;
+				// save teaching content
 				$teaching->save();
 				return redirect()->route('teaching-manage');
 			}
@@ -72,6 +74,7 @@ class TeachingController extends Controller
 
 	public function edit(Request $request)
 	{
+		
 		$teacher = Teacher::find(Auth::id());
 		$teaching = Teaching::find($request->id);
 		if($teaching->teacher_id != Auth::id()){
@@ -82,10 +85,10 @@ class TeachingController extends Controller
 				$subjects [] = $subject;
 			}
 			$substitute_teacher;
-			foreach (Teacher::where('id', '!=' ,$teacher['id'])->get() as $teacher) {
-				$substitute_teacher [] = $teacher;
+			foreach (Teacher::where('id', '!=' ,$teacher['id'])->get() as $teachers) {
+				$substitute_teacher [] = $teachers;
 			}
-			$teaching->file_content = str_replace('teaching/', '', $teaching->file_content);
+			$teaching->file_content = str_replace('public/teaching/' . $teacher->id . '/', '', $teaching->file_content);
 			return view('teaching.edit', [
 				'subjects' => $subjects,
 				'substitute_teacher' => $substitute_teacher,
@@ -97,6 +100,7 @@ class TeachingController extends Controller
 
 	public function update(Request $request)
 	{
+		$teacher = Teacher::find(Auth::id());
 		// Validate form update
 		$validator = Validator::make($request->all(), [
 			'lecture_name' => 'required|max:191',
@@ -115,10 +119,10 @@ class TeachingController extends Controller
 			$teaching->lecture_name = $request->lecture_name;
 			$teaching->lesson_number = $request->lesson_number;
 			if($request->hasFile('files_content')) {
-				$teaching->file_content = str_replace('teaching/', '', $teaching->file_content);
-				if(Storage::disk('teaching')->delete($teaching->file_content)) {
+				$teaching->file_content = str_replace('public/teaching/' . $teacher->id . '/', '', $teaching->file_content);
+				if(unlink(storage_path('app/public/teaching/' . $teacher->id . '/' . $teaching->file_content))) {
 					$files_content = $request->files_content;
-					if($filename = $files_content->storeAs('teaching', $files_content->getClientOriginalName())) {
+					if($filename = Storage::putFileAs('public/teaching/' . $teacher->id, $files_content, $files_content->getClientOriginalName())) {
 						$teaching->file_content = $filename;
 					} else {
 						abort(404);
@@ -150,7 +154,7 @@ class TeachingController extends Controller
 			$teach['stt'] = $stt;
 			$teach->subject_id = Subject::find($teach->subject_id)->subjectname;
 			$teach->substitute_teacher = $teach->substitute_teacher != 0 ? Teacher::find($teach->substitute_teacher)['fullname'] : "Không";
-			$teach->file_content = str_replace('teaching/', '', $teach->file_content);
+			$teach->file_content = str_replace('public/teaching/' . $teacher->id . '/', '', $teach->file_content);
 			// $teaching [] = $teach;
 		}
 		return view('teaching.manager.manage', [
@@ -165,8 +169,8 @@ class TeachingController extends Controller
 		$teacher = Teacher::find(Auth::id());
 		$teaching = Teaching::find($request->id);
 		if($teaching->teacher_id == Auth::id()){
-			$teaching->file_content = str_replace('teaching/', '', $teaching->file_content);
-			if(Storage::disk('teaching')->delete($teaching->file_content)) {
+			$teaching->file_content = str_replace('public/teaching/' . $teacher->id . '/', '', $teaching->file_content);
+			if(unlink(storage_path('app/public/teaching/' . $teacher->id . '/' . $teaching->file_content))) {
 				$teaching->delete();
 				Session::flash('status', 'Xóa thành công !');
 				return redirect()->route('teaching-manage');
@@ -178,11 +182,12 @@ class TeachingController extends Controller
 
 	public function view(Request $request)
 	{
+		$teacher = Teacher::find(Auth::id());
 		$teaching = Teaching::find($request->id);
 		$subject = Subject::find($teaching->subject_id);
-		$teaching->file_content = str_replace('teaching/', '', $teaching->file_content);
+		$teaching->file_content = str_replace('public/teaching/' . $teacher->id . '/', '', $teaching->file_content);
 		$teaching->teacher_id = Teacher::find($teaching->teacher_id)['fullname'];
-		$teaching->file_content = Storage::disk('teaching')->get($teaching->file_content);
+		//$teaching->file_content = Storage::disk('public')->get($teaching->file_content);
 		$teaching_relate = Teaching::where(
 			[
 				['subject_id' , '=', $teaching->subject_id],
