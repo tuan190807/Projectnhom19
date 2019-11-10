@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +19,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+=======
+Route::get('/','TeachingContentController@index');
+Route::post('/client/create','TeachingContentController@create');
+Route::put('/client/update/{id}','TeachingContentController@update');
+Route::delete('/client/delete/{id}','TeachingContentController@destroy');
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4

@@ -15,7 +15,11 @@ return [
 
     'defaults' => [
         'guard' => 'web',
+<<<<<<< HEAD
         'passwords' => 'customusers',
+=======
+        'passwords' => 'users',
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
     ],
 
     /*
@@ -38,12 +42,20 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
+<<<<<<< HEAD
             'provider' => 'customusers',
+=======
+            'provider' => 'users',
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
         ],
 
         'api' => [
             'driver' => 'token',
+<<<<<<< HEAD
             'provider' => 'customusers',
+=======
+            'provider' => 'users',
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
             'hash' => false,
         ],
     ],
@@ -66,9 +78,15 @@ return [
     */
 
     'providers' => [
+<<<<<<< HEAD
         'customusers' => [
             'driver' => 'eloquent',
             'model' => App\CustomUser::class,
+=======
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\User::class,
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
         ],
 
         // 'users' => [
@@ -93,13 +111,22 @@ return [
     */
 
     'passwords' => [
+<<<<<<< HEAD
+=======
+        'users' => [
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],
+<<<<<<< HEAD
         'customusers' => [
             'provider' => 'customusers',
             'table' => 'password_resets',
             'expire' => 60,
         ]  
+=======
+    ],
+
+>>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
 ];
