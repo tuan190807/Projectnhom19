@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','TeachingContentController@index');
+Route::post('/client/create','TeachingContentController@create');
+Route::put('/client/update/{id}','TeachingContentController@update');
+Route::delete('/client/delete/{id}','TeachingContentController@destroy');
