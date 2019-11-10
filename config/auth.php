@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
@@ -12,16 +10,10 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
-
     'defaults' => [
         'guard' => 'web',
-<<<<<<< HEAD
         'passwords' => 'customusers',
-=======
-        'passwords' => 'users',
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -38,28 +30,17 @@ return [
     | Supported: "session", "token"
     |
     */
-
     'guards' => [
         'web' => [
             'driver' => 'session',
-<<<<<<< HEAD
             'provider' => 'customusers',
-=======
-            'provider' => 'users',
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
         ],
-
         'api' => [
             'driver' => 'token',
-<<<<<<< HEAD
             'provider' => 'customusers',
-=======
-            'provider' => 'users',
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
             'hash' => false,
         ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | User Providers
@@ -76,25 +57,16 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
     'providers' => [
-<<<<<<< HEAD
         'customusers' => [
             'driver' => 'eloquent',
             'model' => App\CustomUser::class,
-=======
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\User::class,
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
         ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
@@ -109,24 +81,14 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
     'passwords' => [
-<<<<<<< HEAD
-=======
-        'users' => [
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],
-<<<<<<< HEAD
         'customusers' => [
             'provider' => 'customusers',
             'table' => 'password_resets',
             'expire' => 60,
         ]  
-=======
-    ],
-
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
 ];

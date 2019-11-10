@@ -59,13 +59,13 @@
                                     </div>
                                 </div>
 
-                            {{-- <div class="form-group">
-                                <select class="form-control form-control-lg" id="role">
+                             <div class="form-group">
+                                <select class="form-control form-control-lg" id="role" name="role">
                                     <option value="none">Quyền hạn</option>
                                     <option value="3">Student</option>
                                     <option value="2">Teacher</option>
                                 </select>
-                                <div>
+                                <!-- <div>
                                     <div class="form-group">
                                         <div>
                                             <input id="fullname" type="text" class="form-control" name="fullname" required autocomplete="fullname" placeholder="Họ Tên">
@@ -77,8 +77,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                                <div>
+                                </div> -->
+                                <!-- <div>
                                     <div class="form-group">
                                         <div>
                                             <input id="fullname" type="text" class="form-control" name="fullname" required autocomplete="fullname" placeholder="Họ Tên">
@@ -90,8 +90,8 @@
                                             @enderror
                                         </div>
                                     </div>
-                                </div>
-                            </div> --}}
+                                </div> -->
+                            </div> 
                             <div class="mb-4">
                               <div class="form-check">
                                 <label class="form-check-label text-muted">
