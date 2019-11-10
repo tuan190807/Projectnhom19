@@ -15,8 +15,8 @@ class CreateSpecializedClassTable extends Migration
     {
         Schema::create('specialized_class', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 255)->charset('utf8')->unique();
-            $table->bigInteger('khoa_id');
+            $table->string('name');
+            $table->integer('faculty_id');
             $table->timestamps();
         });
     }

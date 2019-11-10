@@ -12,16 +12,24 @@ class FacultySeeder extends Seeder
     public function run()
     {
         DB::table('facultys')->insert([
-            "name" => "Cong Nghe Thong Tin"
+            "name" => "Cong Nghe Thong Tin",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('facultys')->insert([
-            "name" => "Dien Tu"
+            "name" => "Dien Tu",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('facultys')->insert([
-            "name" => "Du Lich"
+            "name" => "Du Lich",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('facultys')->insert([
-            "name" => "O To"
+            "name" => "O To",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
     }
 }

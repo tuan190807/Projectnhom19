@@ -29,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return Auth::logout();
+         // return Auth::logout();
         $role = Auth::user()->role;
         if($role == 2) {
             $teacher = Teacher::find(Auth::id());

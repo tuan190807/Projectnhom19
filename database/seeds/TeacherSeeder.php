@@ -18,7 +18,9 @@ class TeacherSeeder extends Seeder
             "faculty_id" => "1",
             "address" => "Lang Thanh - Yen Thanh - Nghe An",
             "email" => "ngockya98@gmail.com",
-            "subject_id" => "1"
+            "subject_id" => "1",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
     }
 }

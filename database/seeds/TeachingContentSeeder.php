@@ -19,7 +19,9 @@ class TeachingContentSeeder extends Seeder
             "file_content" => "public/teaching/1/dich-dam-bao.docx",
             "date" => "2019-09-11",
             "note" => "<p>Nothing</p>",
-            "substitute_teacher" => "2"
+            "substitute_teacher" => "2",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('teaching_content')->insert([
             "subject_id" => "1",
@@ -29,7 +31,9 @@ class TeachingContentSeeder extends Seeder
             "file_content" => "public/teaching/1/1.docx",
             "date" => "2019-09-11",
             "note" => "<p>Nothing</p>",
-            "substitute_teacher" => "2"
+            "substitute_teacher" => "2",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('teaching_content')->insert([
             "subject_id" => "1",
@@ -39,7 +43,9 @@ class TeachingContentSeeder extends Seeder
             "file_content" => "public/teaching/1/dich-dam-bao.docx",
             "date" => "2019-10-18",
             "note" => "<p>Nothing</p>",
-            "substitute_teacher" => "0"
+            "substitute_teacher" => "0",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
         DB::table('teaching_content')->insert([
             "subject_id" => "1",
@@ -49,7 +55,9 @@ class TeachingContentSeeder extends Seeder
             "file_content" => "public/teaching/1/Kien Truc Magento nang Cao.docx",
             "date" => "2019-10-17", 
             "note" => "<p>No</p>",
-            "substitute_teacher" => "2"
+            "substitute_teacher" => "2",
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s")
         ]);
     }
 }

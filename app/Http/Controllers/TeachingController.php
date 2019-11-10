@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use App\Teaching;
 use App\Teacher;
 use App\Subject;
-use App\Khoa;
+use App\Faculty;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -73,8 +73,7 @@ class TeachingController extends Controller
 	}
 
 	public function edit(Request $request)
-	{
-		
+	{	
 		$teacher = Teacher::find(Auth::id());
 		$teaching = Teaching::find($request->id);
 		if($teaching->teacher_id != Auth::id()){
@@ -146,7 +145,7 @@ class TeachingController extends Controller
 	public function getByTeacherId(Request $request)
 	{
 		$teacher = Teacher::find(Auth::id());
-		$khoa = Khoa::find($teacher->khoa_id);
+		$khoa = Faculty::find($teacher->faculty_id);
 		$teaching = Teaching::where('teacher_id', $teacher['id'])->paginate(20);
 		$stt = 0;
 		foreach ($teaching as $teach) {

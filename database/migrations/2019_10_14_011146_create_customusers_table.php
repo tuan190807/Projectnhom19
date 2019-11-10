@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClassTable extends Migration
+class CreateCustomusersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateClassTable extends Migration
      */
     public function up()
     {
-        Schema::create('class', function (Blueprint $table) {
+        Schema::create('customusers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 255)->charset('utf8');
-            $table->bigInteger('specialized_class_id');
+            $table->string('username');
+            $table->string('password');
+            $table->integer('role');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateClassTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('class');
+        Schema::dropIfExists('customusers');
     }
 }

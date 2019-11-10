@@ -13,14 +13,14 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('login'));
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/','TeachingContentController@index');
+// Route::get('/','TeachingContentController@index');
 Route::post('/client/create','TeachingContentController@create');
 Route::put('/client/update/{id}','TeachingContentController@update');
 Route::delete('/client/delete/{id}','TeachingContentController@destroy');

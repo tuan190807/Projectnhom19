@@ -15,14 +15,15 @@ class CreateTeachingContentTable extends Migration
     {
         Schema::create('teaching_content', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('subject_id');
-            $table->string('lecture_name')->charset('utf8');
-            $table->smallInteger('lesson_number');
+            $table->integer('subject_id');
+            $table->integer('teacher_id');
+            $table->string('lecture_name');
+            $table->integer('lesson_number');
             $table->string('file_content');
-            $table->date('date');
-            $table->longText('note')->charset('utf8');
-            $table->smallInteger('status')->nullable();
-            $table->bigInteger('substitute_teacher')->nullable();
+            $table->string('date');
+            $table->string('note')->nullable();
+            $table->string('status')->nullable();
+            $table->integer('substitute_teacher');
             $table->timestamps();
         });
     }
