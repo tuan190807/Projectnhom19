@@ -11,7 +11,7 @@
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,9 +19,23 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-=======
+
 Route::get('/','TeachingContentController@index');
 Route::post('/client/create','TeachingContentController@create');
 Route::put('/client/update/{id}','TeachingContentController@update');
 Route::delete('/client/delete/{id}','TeachingContentController@destroy');
->>>>>>> e449ebf53097cf9ae969ccee9a4aebd9bd6cb5b4
+
+Route::get('/teaching-manage', 'TeachingController@getByTeacherId')->name('teaching-manage')
+																   ->middleware('teacher');
+Route::get('/teaching-create', 'TeachingController@create')->name('teaching-create')
+									 					   ->middleware('teacher');
+Route::post('/teaching-store', 'TeachingController@store')->name('teaching-store')
+									 					  ->middleware('teacher');
+Route::get('/teaching-edit', 'TeachingController@edit')->name('teaching-edit')
+									 				   ->middleware('teacher');
+Route::post('/teaching-update', 'TeachingController@update')->name('teaching-update')
+									 						->middleware('teacher');
+Route::post('/teaching-delete', 'TeachingController@delete')->name('teaching-delete')
+									 						->middleware('teacher');
+Route::get('/teaching-view', 'TeachingController@view')->name('teaching-view');
+
