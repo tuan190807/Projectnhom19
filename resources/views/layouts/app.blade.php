@@ -35,14 +35,15 @@
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo mr-5" href="{{ route('home') }}"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><img src="images/logo-mini.svg" alt="logo"/></a>
+          <a class="navbar-brand brand-logo mr-5" href="{{ route('home') }}"><img style="width: 60px; height: 50px;" src="https://cdn-01.dhcnhn.vn/img/logo-45x45.png" class="mr-2" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><img src="https://cdn-01.dhcnhn.vn/img/logo-45x45.png" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="ti-view-list"></span>
           </button>
-          <ul class="navbar-nav mr-lg-2">
+          <h4 style="margin-left: 2.5em; margin-top: 5px;">Quản Lý Giảng Dạy Online</h4>
+          <!-- <ul class="navbar-nav mr-lg-2">
             <li class="nav-item nav-search d-none d-lg-block">
               <div class="input-group">
                 <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
@@ -53,115 +54,24 @@
                 <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
               </div>
             </li>
-          </ul>
+          </ul> -->
           <ul class="navbar-nav navbar-nav-right">
-            <li class="nav-item dropdown mr-1">
-              <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
-                <i class="ti-email mx-0"></i>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="messageDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
-                <a class="dropdown-item">
-                  <div class="item-thumbnail">
-                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                  </div>
-                  <div class="item-content flex-grow">
-                    <h6 class="ellipsis font-weight-normal">David Grey
-                    </h6>
-                    <p class="font-weight-light small-text text-muted mb-0">
-                      The meeting is cancelled
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item">
-                  <div class="item-thumbnail">
-                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                  </div>
-                  <div class="item-content flex-grow">
-                    <h6 class="ellipsis font-weight-normal">Tim Cook
-                    </h6>
-                    <p class="font-weight-light small-text text-muted mb-0">
-                      New product launch
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item">
-                  <div class="item-thumbnail">
-                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                  </div>
-                  <div class="item-content flex-grow">
-                    <h6 class="ellipsis font-weight-normal"> Johnson
-                    </h6>
-                    <p class="font-weight-light small-text text-muted mb-0">
-                      Upcoming board meeting
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                <i class="ti-bell mx-0"></i>
-                <span class="count"></span>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="notificationDropdown">
-                <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                <a class="dropdown-item">
-                  <div class="item-thumbnail">
-                    <div class="item-icon bg-success">
-                      <i class="ti-info-alt mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="item-content">
-                    <h6 class="font-weight-normal">Application Error</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      Just now
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item">
-                  <div class="item-thumbnail">
-                    <div class="item-icon bg-warning">
-                      <i class="ti-settings mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="item-content">
-                    <h6 class="font-weight-normal">Settings</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      Private message
-                    </p>
-                  </div>
-                </a>
-                <a class="dropdown-item">
-                  <div class="item-thumbnail">
-                    <div class="item-icon bg-info">
-                      <i class="ti-user mx-0"></i>
-                    </div>
-                  </div>
-                  <div class="item-content">
-                    <h6 class="font-weight-normal">New user registration</h6>
-                    <p class="font-weight-light small-text mb-0 text-muted">
-                      2 days ago
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </li>
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                <img src="images/faces/face28.jpg" alt="profile"/>
+                <img src="images/avatar.jpg" alt="profile"/>
               </a>
               <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                <p class="dropdown-item">Xin chào, {{ $customuser->fullname }}</p>
                 <a class="dropdown-item">
                   <i class="ti-settings text-primary"></i>
-                  Settings
+                  Thông tin cá nhân
                 </a>
                 <form method="POST" action="{{ route('logout') }}" id="form-logout">
                   @csrf
                   <a class="dropdown-item" id="btn-form-logout">
                     {{-- <button type="submit" class="non-button"> --}}
                       <i class="ti-power-off text-primary"></i>
-                      Logout
+                      Đăng xuất
                     {{-- </button> --}}
                   </a>
                 </form>
@@ -193,7 +103,7 @@
               </a>
               <div class="collapse" id="user-info">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="#">Cập nhật thông tin</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('user') }}">Cập nhật thông tin</a></li>
                   <li class="nav-item"> <a class="nav-link" href="#">Đổi mật khẩu</a></li>
                 </ul>
               </div>
@@ -207,8 +117,8 @@
               </a>
               <div class="collapse" id="noidungday">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="#">Xem nội dung giảng dạy</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">abc</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="{{ route('teachings') }}">Xem nội dung giảng dạy</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">abc</a></li> -->
                 </ul>
               </div>
             </li>
@@ -237,11 +147,11 @@
               </a>
               <div class="collapse" id="question">
                 <ul class="nav flex-column sub-menu">
-                  <li class="nav-item"> <a class="nav-link" href="">Quản Lý C</a></li>
-                  <li class="nav-item"> <a class="nav-link" href="">Typography</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="">Quản Lý Hỏi Đáp</a></li>
+                  <!-- <li class="nav-item"> <a class="nav-link" href="">Typography</a></li> -->
                 </ul>
               </div>
-            </li>
+            <!-- </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="ti-palette menu-icon"></i>
@@ -254,7 +164,7 @@
                   <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                 </ul>
               </div>
-            </li>
+            </li> -->
           </ul>
         </nav>
         <!-- partial -->
@@ -265,9 +175,9 @@
     </div>
 
     <footer class="footer">
-      <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2018 <a href="https://www.templatewatch.com/" target="_blank">Templatewatch</a>. All rights reserved.</span>
-        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+      <div style="float: right;" class="d-sm-flex justify-content-center justify-content-sm-between">
+        <!-- <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.templatewatch.com/" target="_blank">Templatewatch</a>. All rights reserved.</span> -->
+        <span  class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">BTL phát triển phần mềm hướng dịch vụ N19 <i class="ti-heart text-danger ml-1"></i></span>
       </div>
     </footer>
     <!-- partial -->

@@ -39,3 +39,8 @@ Route::post('/teaching-delete', 'TeachingController@delete')->name('teaching-del
 									 						->middleware('teacher');
 Route::get('/teaching-view', 'TeachingController@view')->name('teaching-view');
 
+Route::get('/user', 'CustomUserController@index')->name('user');
+
+Route::get('/teachings', 'TeachingController@getAllByCustomer')->name('teachings');
+Route::POST('/forgetSession', 'TeachingController@forgetSession')->name('forgetSession');
+

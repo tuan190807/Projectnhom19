@@ -17,9 +17,30 @@ class HomeController extends Controller
      *
      * @return void
      */
+    protected $customuser;
+    
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function _construct()
+    {
+        $role = Auth::user()->role;
+        if($role == 2) {
+            $teacher = DB::Table('teachers')
+                                ->where('customuser_id' ,'=', Auth::id())
+                                ->get();
+            $this->customuser = $teacher[0];
+        }
+        if($role == 3) {
+            $student = DB::Table('students')
+                                ->where('customuser_id' ,'=', Auth::id())
+                                ->get();
+            $this->customuser = $student[0];
+        }
+
+        return $this->customuser;
     }
 
     /**
@@ -29,12 +50,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-         // return Auth::logout();
+          // return Auth::logout();
+        $this->customuser = $this->_construct();
         $role = Auth::user()->role;
         if($role == 2) {
-            $teacher = Teacher::find(Auth::id());
             $subjects = DB::Table('subjects')
-                                ->where('teacher_id', '=', $teacher->id)
+                                ->where('teacher_id', '=', $this->customuser->id)
                                 ->get();
             foreach ($subjects as $value) {
                 $subject_id [] = $value->id;
@@ -42,7 +63,7 @@ class HomeController extends Controller
         }
         if($role == 3) {
             $class_id = DB::Table('students')
-                                ->where('customuser_id', '=', Auth::id())
+                                ->where('customuser_id', '=', $this->customuser->id)
                                 ->first()
                                 ->class_id;
             $subjects = DB::Table('subjects')
@@ -84,8 +105,9 @@ class HomeController extends Controller
                 $value->teacher_id = Teacher::find($value->teacher_id)->fullname;
             }
         }
-        // dd($subjects);
+        // dd($customuser);
         return view('home', [
+            'customuser' => $this->customuser,
             'subjects' => $subjects,
             'teaching_new' => $teaching_new,
             'teaching_subject' =>$teaching_subject

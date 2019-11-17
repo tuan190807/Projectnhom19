@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>RoyalUI Admin</title>
+  <title>Quản Lý Bài Giảng</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
@@ -26,8 +26,9 @@
                 <div class="row w-100 mx-0">
                     <div class="col-lg-4 mx-auto">
                         <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                            <div class="brand-logo">
-                                <img src="../images/logo.svg" alt="logo">
+                            <div class="brand-logo" style="text-align: center;">
+                                <img src="https://cdn-01.dhcnhn.vn/img/logo-haui-size.png" alt="logo">
+                                <h4 style="margin-top: 25px; color: #333; font-size: 21px">Hệ Thống Quản Lý Bài Giảng</h4>
                             </div>
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
@@ -65,7 +66,7 @@
             </div>
         </div> --}}
         <div class="text-center forgot-password">
-            <p>Bạn quên mật khẩu ?<a href="{{ route('register') }}" class="auth-link">Quên mật khẩu?</a></p>
+            <!-- <p>Bạn quên mật khẩu ?<a href="{{ route('register') }}" class="auth-link">Quên mật khẩu?</a></p> -->
         </div>
         
         {{-- <div class="text-center mt-4 font-weight-light">

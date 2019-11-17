@@ -9,11 +9,11 @@
 					<div>
 						<h4 class="font-weight-bold mb-0">Quản Lý Bài Giảng</h4>
 					</div>
-					<div>
+					<!-- <div>
 						<button type="button" class="btn btn-primary btn-icon-text btn-rounded">
 							<i class="ti-clipboard btn-icon-prepend"></i>Report
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -119,34 +119,32 @@
 		</div>
 		<!-- partial:partials/_footer.html -->
 	</div>
-	@if(Session::get('status')) {
+	@if(Session::get('status') != null)
 	<script>
 		$(document).ready(function(){
 			var title = "{{ Session::get('status') }}";
 			alert(title);
 		});
 	</script>
-}
+	<?php Session::flash('status', null); ?>
 @endif
-{{-- <script>
+ <script>
 	$(document).ready(function(){
-		$('#btn-delete').click(function(){
-			id = $('#id_delete').val();
 			$.ajax({
 				type: 'POST',
-				url: '/teaching-delete',
+				url: '/forgetSession',
 				data: {
 					_token: '{{ csrf_token() }}',
-					id: id
+					key: 'status'
 				}
 			})
 			.done(function(rs) {
-				alert(rs);
+				
 			})
 			.fail(function() {
 				console.log("Lỗi");
 			})
-		});
 	});
-</script> --}}
+</script>
+
 @endsection

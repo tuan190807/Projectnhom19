@@ -8,11 +8,11 @@
 					<div>
 						<h4 class="center font-weight-bold mb-0">Bài Giảng Mới</h4>
 					</div>
-					<div>
+					<!-- <div>
 						<button type="button" class="btn btn-primary btn-icon-text btn-rounded">
 							<i class="ti-clipboard btn-icon-prepend"></i>Report
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>

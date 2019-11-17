@@ -8,11 +8,11 @@
 					<div>
 						<h4 class="center font-weight-bold mb-0">Nội dung bài giảng</h4>
 					</div>
-					<div>
+					<!-- <div>
 						<button type="button" class="btn btn-primary btn-icon-text btn-rounded">
 							<i class="ti-clipboard btn-icon-prepend"></i>Report
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -45,9 +45,13 @@
 							</div>
 						</div>		
 					</div>
-					<div class=	"view-doc" style="text-align: center;">	
-						<embed class="document" src="{{asset('storage/teaching/' . $teaching->file_content)}}">
-							<!-- <iframe src="{{asset('storage/teaching/phieuhoc')}}" frameborder="1"></iframe> -->
+						<div class=	"view-doc" style="text-align: center;">
+							@if($file_type == "pdf")
+								<embed class='document' src="{{asset('storage/teaching/' . $teaching->file_content)}}">
+							@else
+								<iframe class="document" src="https://view.officeapps.live.com/op/view.aspx?src={{asset('storage/teaching/' . $teaching->file_content)}}" frameborder="1">
+								</iframe>
+							@endif
 						</div>
 					</div>
 				</div>
@@ -60,7 +64,7 @@
 								<div class="col-md-12">
 									<div class="view-note">
 										<h4>Note</h4>
-										<p>Để tạo ra lề về bên trái của cột chúng ta có thể sử dụng các class offset. Áp dụng một class .col-md-offset-Number cho bất kỳ cột sẽ di chuyển nó sang bên phải, Bạn có thể có các hiệu số khác nhau cho các màn hình khác nhau kích thước nhờ vào xs, sm, md và lg.</p>
+										{!! $teaching->note !!}
 									</div>
 								</div>
 							</div>
