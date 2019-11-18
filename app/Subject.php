@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
+
     protected $fillable  = [
         'subjectname', 'classroom', 'oder_of_lesson', 'teacher_id'
     ];
@@ -31,4 +32,6 @@ class Subject extends Model
         }
         return join(", ", $arr);    
     }
+
+	protected $table = 'subjects';
 }
