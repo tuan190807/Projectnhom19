@@ -50,7 +50,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-          // return Auth::logout();
+           // return Auth::logout();
         $this->customuser = $this->_construct();
         $role = Auth::user()->role;
         if($role == 2) {

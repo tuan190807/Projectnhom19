@@ -20,16 +20,24 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::get('/','TeachingContentController@index');
-Route::post('/client/create','TeachingContentController@create');
-Route::put('/client/update/{id}','TeachingContentController@update');
-Route::delete('/client/delete/{id}','TeachingContentController@destroy');
-<<<<<<< HEAD
-Route::get('/managerteacher','TeacherController@index');
-Route::post('/client/createteacher','TeacherController@create');
-Route::put('/client/updateteacher/{id}','TeacherController@update');
-Route::delete('/client/deleteteacher/{id}','TeacherController@destroy');
-=======
+Route::get('/admin','TeachingContentController@goHome')->name('admin');
+// ->middleware('admin');
+Route::get('/admin/client','TeachingContentController@index')->name('client');
+// ->middleware('admin');
+Route::post('/client/create','TeachingContentController@create')->name('client-create');
+// ->middleware('admin');
+Route::put('/client/update/{id}','TeachingContentController@update')->name('client-update');
+// ->middleware('admin');
+Route::delete('/client/delete/{id}','TeachingContentController@destroy')->name('client-delete');
+// ->middleware('admin');
+Route::get('/admin/managerteacher','TeacherController@index')->name('teacher-index');
+// ->middleware('admin');
+Route::post('/client/createteacher','TeacherController@create')->name('teacher-create');
+// ->middleware('admin');
+Route::put('/client/updateteacher/{id}','TeacherController@update')->name('teacher-update');
+// ->middleware('admin');
+Route::delete('/client/deleteteacher/{id}','TeacherController@destroy')->name('teacher-delete');
+// ->middleware('admin');
 
 Route::get('/teaching-manage', 'TeachingController@getByTeacherId')->name('teaching-manage')
 																   ->middleware('teacher');
@@ -50,4 +58,4 @@ Route::get('/user', 'CustomUserController@index')->name('user');
 Route::get('/teachings', 'TeachingController@getAllByCustomer')->name('teachings');
 Route::POST('/forgetSession', 'TeachingController@forgetSession')->name('forgetSession');
 
->>>>>>> a3fc292e1cd2c02590461bc49c360535ef374de1
+

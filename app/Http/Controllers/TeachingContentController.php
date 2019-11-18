@@ -8,6 +8,17 @@ use App\Teacher;
 use App\Classes;
 class TeachingContentController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
+    public function goHome()
+    {
+        return view('client.app');
+    }
+
     public function index(Request $request){
         $subjects = Subject::orderby("created_at","desc");
         $teachers = Teacher::orderby("created_at","desc")->get();

@@ -7,6 +7,11 @@ use App\Teacher;
 use App\Customuser;
 class TeacherController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+    
     public function index(Request $request){
         
         $teachers = Teacher::orderby("created_at","desc");
