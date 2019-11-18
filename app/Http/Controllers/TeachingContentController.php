@@ -30,7 +30,6 @@ class TeachingContentController extends Controller
         ]);
 
         $newSubject->classes()->attach($request->class_name);
-
         $newSubject->save();
         return back();
     }
